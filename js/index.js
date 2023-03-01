@@ -101,6 +101,7 @@ async function getListMessage() {
     let myURL = await fetch("https://munosutu.myhostpoint.ch/chatGetherApi.php");
     let myResponse = await myURL.text();
     let myText = JSON.parse(myResponse);
+
  
 }
 

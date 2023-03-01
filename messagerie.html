@@ -47,9 +47,11 @@
 </head>
 
 <body>
-    <p id="numUilisateur"><script type="js/index.js"> showNumberOfTheUser()</script></p>
-    <input type="text" id = "numRecepteur" placeholder="0793883265">
-    <input type="button" id="validationRecepteur" value = "valider le recepteur" onclick="verificationNumber()">
+    <p id="numUilisateur">
+        <script type="js/index.js"> showNumberOfTheUser()</script>
+    </p>
+    <input type="text" id="numRecepteur" placeholder="0793883265">
+    <input type="button" id="validationRecepteur" value="valider le recepteur" onclick="verificationNumber()">
     <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -57,14 +59,14 @@
                     <div class="card card-bordered">
                         <div class="card-header">
                             <h4 class="card-title"><strong>Chat</strong></h4>
-                            
+
                         </div>
 
 
                         <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
                             style="overflow-y: scroll !important; height:600px !important;">
                             <div class="media media-chat">
-                                
+
                                 <div class="media-body">
                                     <p>Hi</p>
                                     <p>How are you ...???</p>
@@ -85,7 +87,7 @@
                             </div>
 
                             <div class="media media-chat">
-                               
+
                                 <div class="media-body">
                                     <p>Okay</p>
                                     <p>We will go on sunday? </p>
@@ -103,7 +105,7 @@
                             </div>
 
                             <div class="media media-chat">
-                                
+
                                 <div class="media-body">
                                     <p>Okay i will meet you on Sandon Square </p>
                                     <p class="meta"><time datetime="2018">00:10</time></p>
@@ -118,7 +120,7 @@
                             </div>
 
                             <div class="media media-chat">
-                                
+
                                 <div class="media-body">
                                     <p>Sorry I don't have. i changed my phone.</p>
                                     <p class="meta"><time datetime="2018">00:12</time></p>
@@ -141,8 +143,10 @@
                         </div>
 
                         <div class="publisher bt-1 border-light">
-                            <input class="publisher-input" type="text" placeholder="Write something">
-                            <input type="submit" id="envoyerMessage" value=">">
+                            <form method="post">
+                                <input class="publisher-input" type="text" placeholder="Write something">
+                                <input type="submit" id="envoyerMessage" value=">">
+                            </form>
                             <span class="publisher-btn file-group">
                                 <i class="fa fa-paperclip file-browser"></i>
                                 <input type="file">

@@ -28,38 +28,37 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
-function showNumberOfTheUser(){
-   // document.getElementById("numUilisateur").innerHTML = input;
-     document.write(window.localStorage.getItem("numUser"));
-     console.log(window.localStorage.getItem("numUser"));
+function showNumberOfTheUser() {
+    // document.getElementById("numUilisateur").innerHTML = input;
+    document.write(window.localStorage.getItem("numUser"));
+    console.log(window.localStorage.getItem("numUser"));
 }
-function validationRecepteur(){
+function validationRecepteur() {
     document.getElementById("numRecepteur").style.visibility = "hidden";
     document.getElementById("validationRecepteur").style.visibility = "hidden";
     document.getElementById("page-content").style.visibility = "visible";
 }
 // function to handle click on submit button
-function verificationNumber()
-{
+function verificationNumber() {
     var input = document.getElementById("numRecepteur").value;
     var format = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/;
 
 
     // conditional statements
 
-    if(input===''){
+    if (input === '') {
 
         alert("Please Enter Phone Number")
 
     }
 
-    else if(input.match(format)){
+    else if (input.match(format)) {
 
         validationRecepteur();
-        
+
     }
 }
-function  handleClick(){
+function handleClick() {
 
     // getting the reference of myPhone input
 
@@ -72,28 +71,36 @@ function  handleClick(){
 
     // conditional statements
 
-    if(input===''){
+    if (input === '') {
 
         alert("Please Enter Phone Number")
 
     }
 
-    else if(input.match(format)){
+    else if (input.match(format)) {
 
         //alert("Phone Number: "+ input);
         console.log(input);
         if (condition) {
-            
+
         }
         window.localStorage.setItem("numUser", input);
         numeroDeTel = input;
-        
+
     }
 
-    else{
+    else {
 
         alert("Type using correct format");
 
     }
 
 }
+async function getListMessage() {
+  
+    let myURL = await fetch("https://munosutu.myhostpoint.ch/chatGetherApi.php");
+    let myResponse = await myURL.text();
+    let myText = JSON.parse(myResponse);
+ 
+}
+

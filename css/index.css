@@ -198,6 +198,7 @@ h4.card-title {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
     flex-direction: row-reverse;
+    align-self: right;
 }
 
 .media-chat {

@@ -22,6 +22,8 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 document.getElementById("page-content").style.visibility = "hidden";
 var input;
+var numEmetteur;
+var myText;
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
@@ -30,8 +32,9 @@ function onDeviceReady() {
 }
 function showNumberOfTheUser() {
     // document.getElementById("numUilisateur").innerHTML = input;
-    document.write(window.localStorage.getItem("numUser"));
-    console.log(window.localStorage.getItem("numUser"));
+    //document.write(window.localStorage.getItem("numUser"));
+    //console.log(window.localStorage.getItem("numUser"));
+    return window.localStorage.getItem("numUser");
 }
 function validationRecepteur() {
     document.getElementById("numRecepteur").style.visibility = "hidden";
@@ -81,9 +84,6 @@ function handleClick() {
 
         //alert("Phone Number: "+ input);
         console.log(input);
-        if (condition) {
-
-        }
         window.localStorage.setItem("numUser", input);
         numeroDeTel = input;
 
@@ -97,13 +97,44 @@ function handleClick() {
 
 }
 async function getListMessage() {
-  
-    let myURL = await fetch("https://munosutu.myhostpoint.ch/chatGetherApi.php");
+
+    //let myURL = await fetch("https://munosutu.myhostpoint.ch/chatGetherApi.php");
+
+
+    //document.getElementById("numEmetteur").value = myText[0].Message;
+    /* numEmetteur = showNumberOfTheUser();
+     console.log(numEmetteur);*/
+     validationRecepteur();
+    document.getElementById("numEmetteur").value = showNumberOfTheUser();
+    let path = "https://munosutu.myhostpoint.ch/chatGetherApi.php" + "?numRecepteur=" + document.getElementById("numRecepteur").value + "&numEmetteur=" + showNumberOfTheUser();
+    let myURL = await fetch(path);
     let myResponse = await myURL.text();
-    let myText = JSON.parse(myResponse);
+     myText = JSON.parse(myResponse);
+    window.localStorage.setItem("message", myText);
+    console.log(myText);
+    showMessage();
 
-    document.getElementById("numRecepteur").value = myText;
 
- 
+
+}
+function showMessage() {
+    divWithAllMessage = document.getElementById("allMessage");
+    let allMessage = window.localStorage.getItem("message");
+    var message ="";
+    for (let i = 0; i < myText.length; i++) {
+        if (myText[i]["NumEmetteur"] == window.localStorage.getItem("numUser")) 
+        {
+            message += '<div class="media media-chat media-chat-reverse "><div class="media-body"><p>'+ myText[i]["Message"]+'</p><p class="meta"><time datetime="2018">23:58</time></p></div></div>';
+                 
+            
+        }
+        else{
+            message += '<div class="media media-chat"><div class="media-body"><p>'+ myText[i]["Message"]+'</p><p class="meta"><time datetime="2018">23:58</time></p></div></div>';
+             
+        }
+
+    }
+    divWithAllMessage.innerHTML = message;
+
 }
 

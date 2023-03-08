@@ -102,6 +102,8 @@ async function getListMessage() {
     let myResponse = await myURL.text();
     let myText = JSON.parse(myResponse);
 
+    document.getElementById("numRecepteur").value = myText;
+
  
 }
 

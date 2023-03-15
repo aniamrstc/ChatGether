@@ -295,6 +295,9 @@ button, input, optgroup, select, textarea {
     -webkit-transition: .2s linear;
     transition: .2s linear;
 } 
+h1{
+    color: blue;
+}
 
 .file-group input[type="file"] {
     position: absolute;

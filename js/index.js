@@ -190,8 +190,6 @@ async function sendMessage() {
     let myURL = await fetch(path);
     let myResponse = await myURL.text();
     getListMessage();
-    //   var objDiv = document.getElementById("page-content");
-    //   objDiv.scrollTo(0, objDiv.scrollHeight);
 
 
 }
